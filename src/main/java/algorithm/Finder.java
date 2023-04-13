@@ -9,7 +9,7 @@ public class Finder {
 		personas = p;
 	}
 
-	public F Find(OPTION OPTION) {
+	public F Find(Type OPTION) {
 		List<F> tr = new ArrayList<F>();
 
 		for ( int i = 0; i < personas.size() - 1; i++) {

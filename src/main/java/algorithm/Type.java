@@ -1,4 +1,4 @@
 package algorithm;
-public enum OPTION {
+public enum Type {
 	One, Two
 }
