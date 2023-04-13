@@ -3,24 +3,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Finder {
-	private final List<Persona> _p;
+	private final List<Persona> personas;
 
 	public Finder(List<Persona> p) {
-		_p = p;
+		personas = p;
 	}
 
 	public F Find(OPTION OPTION) {
 		List<F> tr = new ArrayList<F>();
 
-		for (int i = 0; i < _p.size() - 1; i++) {
-			for (int j = i + 1; j < _p.size(); j++) {
+		for ( int i = 0; i < personas.size() - 1; i++) {
+			for ( int j = i + 1; j < personas.size(); j++) {
 				F r = new F();
-				if (_p.get(i).getBirthDate().getTime() < _p.get(j).getBirthDate().getTime()) {
-					r.P1 = _p.get(i);
-					r.P2 = _p.get(j);
+				if ( personas.get(i).getBirthDate().getTime() < personas.get(j).getBirthDate().getTime()) {
+					r.P1 = personas.get(i);
+					r.P2 = personas.get(j);
 				} else {
-					r.P1 = _p.get(j);
-					r.P2 = _p.get(i);
+					r.P1 = personas.get(j);
+					r.P2 = personas.get(i);
 				}
 				r.D = r.P2.getBirthDate().getTime() - r.P1.getBirthDate().getTime();
 				tr.add(r);
