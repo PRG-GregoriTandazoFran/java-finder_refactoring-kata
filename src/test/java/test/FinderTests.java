@@ -1,4 +1,5 @@
 package test;
+
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
@@ -15,103 +16,103 @@ import algorithm.Persona;
 
 public class FinderTests {
 
-	Persona sue   = new Persona();
-	Persona greg  = new Persona();
-	Persona sarah = new Persona();
-	Persona mike  = new Persona();
+    Persona sue   = new Persona();
+    Persona greg  = new Persona();
+    Persona sarah = new Persona();
+    Persona mike  = new Persona();
 
-	@Before
-	public void setup() {
-		sue.name = "Sue";
-		sue.birthDate = new Date(50, 0, 1);
-		greg.name = "Greg";
-		greg.birthDate = new Date(52, 5, 1);
-		sarah.name = "Sarah";
-		sarah.birthDate = new Date(82, 0, 1);
-		mike.name = "Mike";
-		mike.birthDate = new Date(79, 0, 1);
-	}
+    @Before
+    public void setup() {
+        sue.setName( "Sue" );
+        sue.setBirthDate( new Date( 50, 0, 1 ) );
+        greg.setName( "Greg" );
+        greg.setBirthDate( new Date( 52, 5, 1 ) );
+        sarah.setName( "Sarah" );
+        sarah.setBirthDate( new Date( 82, 0, 1 ) );
+        mike.setName( "Mike" );
+        mike.setBirthDate( new Date( 79, 0, 1 ) );
+    }
 
-	@Test
-	public void Returns_Empty_Results_When_Given_Empty_List() {
-		List<Persona> list   = new ArrayList<Persona>();
-		Finder        finder = new Finder(list);
+    @Test
+    public void Returns_Empty_Results_When_Given_Empty_List() {
+        List<Persona> list   = new ArrayList<Persona>();
+        Finder        finder = new Finder( list );
 
-		F result = finder.Find(FT.One);
-		assertEquals(null, result.P1);
+        F result = finder.Find( FT.One );
+        assertEquals( null, result.P1 );
 
-		assertEquals(null, result.P2);
-	}
+        assertEquals( null, result.P2 );
+    }
 
-	@Test
-	public void Returns_Empty_Results_When_Given_One_Person() {
-		List<Persona> list = new ArrayList<Persona>();
-		list.add(sue);
+    @Test
+    public void Returns_Empty_Results_When_Given_One_Person() {
+        List<Persona> list = new ArrayList<Persona>();
+        list.add( sue );
 
-		Finder finder = new Finder(list);
+        Finder finder = new Finder( list );
 
-		F result = finder.Find(FT.One);
+        F result = finder.Find( FT.One );
 
-		assertEquals(null, result.P1);
-		assertEquals(null, result.P2);
-	}
+        assertEquals( null, result.P1 );
+        assertEquals( null, result.P2 );
+    }
 
-	@Test
-	public void Returns_Closest_Two_For_Two_People() {
-		List<Persona> list = new ArrayList<Persona>();
-		list.add(sue);
-		list.add(greg);
-		Finder finder = new Finder(list);
+    @Test
+    public void Returns_Closest_Two_For_Two_People() {
+        List<Persona> list = new ArrayList<Persona>();
+        list.add( sue );
+        list.add( greg );
+        Finder finder = new Finder( list );
 
-		F result = finder.Find(FT.One);
+        F result = finder.Find( FT.One );
 
-		assertEquals(sue, result.P1);
-		assertEquals(greg, result.P2);
-	}
+        assertEquals( sue, result.P1 );
+        assertEquals( greg, result.P2 );
+    }
 
-	@Test
-	public void Returns_Furthest_Two_For_Two_People() {
-		List<Persona> list = new ArrayList<Persona>();
-		list.add(mike);
-		list.add(greg);
+    @Test
+    public void Returns_Furthest_Two_For_Two_People() {
+        List<Persona> list = new ArrayList<Persona>();
+        list.add( mike );
+        list.add( greg );
 
-		Finder finder = new Finder(list);
+        Finder finder = new Finder( list );
 
-		F result = finder.Find(FT.Two);
+        F result = finder.Find( FT.Two );
 
-		assertEquals(greg, result.P1);
-		assertEquals(mike, result.P2);
-	}
+        assertEquals( greg, result.P1 );
+        assertEquals( mike, result.P2 );
+    }
 
-	@Test
-	public void Returns_Furthest_Two_For_Four_People() {
-		List<Persona> list = new ArrayList<Persona>();
-		list.add(sue);
-		list.add(sarah);
-		list.add(mike);
-		list.add(greg);
-		Finder finder = new Finder(list);
+    @Test
+    public void Returns_Furthest_Two_For_Four_People() {
+        List<Persona> list = new ArrayList<Persona>();
+        list.add( sue );
+        list.add( sarah );
+        list.add( mike );
+        list.add( greg );
+        Finder finder = new Finder( list );
 
-		F result = finder.Find(FT.Two);
+        F result = finder.Find( FT.Two );
 
-		assertEquals(sue, result.P1);
-		assertEquals(sarah, result.P2);
-	}
+        assertEquals( sue, result.P1 );
+        assertEquals( sarah, result.P2 );
+    }
 
-	@Test
-	public void Returns_Closest_Two_For_Four_People() {
-		List<Persona> list = new ArrayList<Persona>();
-		list.add(sue);
-		list.add(sarah);
-		list.add(mike);
-		list.add(greg);
+    @Test
+    public void Returns_Closest_Two_For_Four_People() {
+        List<Persona> list = new ArrayList<Persona>();
+        list.add( sue );
+        list.add( sarah );
+        list.add( mike );
+        list.add( greg );
 
-		Finder finder = new Finder(list);
+        Finder finder = new Finder( list );
 
-		F result = finder.Find(FT.One);
+        F result = finder.Find( FT.One );
 
-		assertEquals(sue, result.P1);
-		assertEquals(greg, result.P2);
-	}
+        assertEquals( sue, result.P1 );
+        assertEquals( greg, result.P2 );
+    }
 
 }
