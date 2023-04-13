@@ -5,17 +5,17 @@ import java.util.List;
 public class Finder {
 	private final List<Persona> personas;
 
-	public Finder(List<Persona> p) {
-		personas = p;
+	public Finder(List<Persona> personas) {
+		this.personas = personas;
 	}
 
-	public F Find(Type OPTION) {
+	public F Find(Type type) {
 		List<F> tr = new ArrayList<F>();
 
 		for ( int i = 0; i < personas.size() - 1; i++) {
 			for ( int j = i + 1; j < personas.size(); j++) {
 				F r = new F();
-				if ( personas.get(i).getBirthDate().getTime() < personas.get(j).getBirthDate().getTime()) {
+				if ( personas.get( i ).getBirthDateWithTime() < personas.get(j).getBirthDateWithTime()) {
 					r.P1 = personas.get(i);
 					r.P2 = personas.get(j);
 				} else {
@@ -33,7 +33,7 @@ public class Finder {
 
 		F answer = tr.get(0);
 		for (F result : tr) {
-			switch ( OPTION ) {
+			switch ( type ) {
 				case One :
 					if (result.D < answer.D) {
 						answer = result;

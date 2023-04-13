@@ -18,5 +18,9 @@ public class Persona {
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
+
+	public long getBirthDateWithTime(){
+		return this.birthDate.getTime();
+	}
 }
 
