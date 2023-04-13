@@ -1,6 +1,6 @@
 package algorithm;
 public class F {
-	public Thing P1;
-	public Thing P2;
-	public long D;
+	public Persona P1;
+	public Persona P2;
+	public long    D;
 }

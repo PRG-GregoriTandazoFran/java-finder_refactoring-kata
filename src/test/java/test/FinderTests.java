@@ -11,14 +11,14 @@ import org.junit.Test;
 import algorithm.F;
 import algorithm.FT;
 import algorithm.Finder;
-import algorithm.Thing;
+import algorithm.Persona;
 
 public class FinderTests {
 
-	Thing sue = new Thing();
-	Thing greg = new Thing();
-	Thing sarah = new Thing();
-	Thing mike = new Thing();
+	Persona sue   = new Persona();
+	Persona greg  = new Persona();
+	Persona sarah = new Persona();
+	Persona mike  = new Persona();
 
 	@Before
 	public void setup() {
@@ -34,8 +34,8 @@ public class FinderTests {
 
 	@Test
 	public void Returns_Empty_Results_When_Given_Empty_List() {
-		List<Thing> list = new ArrayList<Thing>();
-		Finder finder = new Finder(list);
+		List<Persona> list   = new ArrayList<Persona>();
+		Finder        finder = new Finder(list);
 
 		F result = finder.Find(FT.One);
 		assertEquals(null, result.P1);
@@ -45,7 +45,7 @@ public class FinderTests {
 
 	@Test
 	public void Returns_Empty_Results_When_Given_One_Person() {
-		List<Thing> list = new ArrayList<Thing>();
+		List<Persona> list = new ArrayList<Persona>();
 		list.add(sue);
 
 		Finder finder = new Finder(list);
@@ -58,7 +58,7 @@ public class FinderTests {
 
 	@Test
 	public void Returns_Closest_Two_For_Two_People() {
-		List<Thing> list = new ArrayList<Thing>();
+		List<Persona> list = new ArrayList<Persona>();
 		list.add(sue);
 		list.add(greg);
 		Finder finder = new Finder(list);
@@ -71,7 +71,7 @@ public class FinderTests {
 
 	@Test
 	public void Returns_Furthest_Two_For_Two_People() {
-		List<Thing> list = new ArrayList<Thing>();
+		List<Persona> list = new ArrayList<Persona>();
 		list.add(mike);
 		list.add(greg);
 
@@ -85,7 +85,7 @@ public class FinderTests {
 
 	@Test
 	public void Returns_Furthest_Two_For_Four_People() {
-		List<Thing> list = new ArrayList<Thing>();
+		List<Persona> list = new ArrayList<Persona>();
 		list.add(sue);
 		list.add(sarah);
 		list.add(mike);
@@ -100,7 +100,7 @@ public class FinderTests {
 
 	@Test
 	public void Returns_Closest_Two_For_Four_People() {
-		List<Thing> list = new ArrayList<Thing>();
+		List<Persona> list = new ArrayList<Persona>();
 		list.add(sue);
 		list.add(sarah);
 		list.add(mike);
