@@ -22,7 +22,7 @@ public class Finder {
 					r.P1 = personas.get(j);
 					r.P2 = personas.get(i);
 				}
-				r.D = r.P2.getBirthDate().getTime() - r.P1.getBirthDate().getTime();
+				r.D = r.P2.getBirthDateWithTime() - r.P1.getBirthDateWithTime();
 				tr.add(r);
 			}
 		}
